@@ -45,7 +45,16 @@ export default function ScheduleSection({ events }: ScheduleSectionProps) {
           {upcomingEvents.length} Events
         </span>
       </div>
-
+      {/* กรอบโชว์รูป Official Schedule */}
+      <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-2xs bg-slate-50">
+        <a href="/856975538_2210134986236103_7181391173513989429_n.png.jpeg" target="_blank" rel="noreferrer" title="คลิกเพื่อดูภาพขนาดเต็ม">
+          <img
+            src="/856975538_2210134986236103_7181391173513989429_n.png.jpeg"
+            alt="Official Schedule Inkcha BNK48"
+            className="w-full h-auto object-cover hover:opacity-95 transition-opacity"
+          />
+        </a>
+      </div>
       <div className="space-y-4">
         {upcomingEvents.length > 0 ? (
           upcomingEvents.map((item, idx) => (
