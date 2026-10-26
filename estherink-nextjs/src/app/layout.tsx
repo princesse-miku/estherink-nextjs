@@ -4,9 +4,6 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Esther Ink official fansite",
   description: "Esther Ink - Inkcha BNK48 supporters fansite",
-  icons: {
-    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>",
-  },
 };
 
 export default function RootLayout({
@@ -16,8 +13,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="th">
+      <head>
+        {/* ใส่แท็ก Favicon หัวใจตรงนี้โดยตรง */}
+        <link
+          rel="icon"
+          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>"
+        />
+      </head>
       <body className="min-h-screen relative bg-gradient-to-br from-pink-50 via-rose-50/60 to-purple-50/40 text-slate-800 antialiased">
-        {/* Layer ลายละอองดอกไม้และประกายแสงจางๆ แบบ Floating Fairy */}
         <div 
           className="fixed inset-0 pointer-events-none z-[-1] opacity-30"
           style={{
@@ -26,7 +29,6 @@ export default function RootLayout({
             backgroundPosition: `0 0, 16px 16px`,
           }}
         />
-
         {children}
       </body>
     </html>
