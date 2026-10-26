@@ -1,33 +1,34 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Esther Ink official fansite",
   description: "Esther Ink - Inkcha BNK48 supporters fansite",
   icons: {
-    // ใช้ไอคอนหัวใจสีชมพู (SVG Data URI) แทนไฟล์เดิมได้ทันทีโดยไม่ต้องหารูปมาใส่เพิ่ม
     icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>",
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="th">
+      <body className="min-h-screen relative bg-gradient-to-br from-pink-50 via-rose-50/60 to-purple-50/40 text-slate-800 antialiased">
+        {/* Layer ลายละอองดอกไม้และประกายแสงจางๆ แบบ Floating Fairy */}
+        <div 
+          className="fixed inset-0 pointer-events-none z-[-1] opacity-30"
+          style={{
+            backgroundImage: `radial-gradient(#f472b6 0.8px, transparent 0.8px), radial-gradient(#fb7185 0.8px, #fff5f7 0.8px)`,
+            backgroundSize: `32px 32px`,
+            backgroundPosition: `0 0, 16px 16px`,
+          }}
+        />
+
+        {children}
+      </body>
     </html>
   );
 }
